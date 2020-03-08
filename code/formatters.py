@@ -86,7 +86,16 @@ class Actions:
             return format_text_helper(text, fmtrs)
         else:
             return format_text_helper([text], fmtrs)
-        
+
+    def format_snake((text: Union[str, List[str]]) -> str:
+        return actions.user.formatters_format_text(text, ['snake'])
+
+    def format_camel((text: Union[str, List[str]]) -> str:
+        return actions.user.formatters_format_text(text, ['camel'])
+
+    def format_hammer((text: Union[str, List[str]]) -> str:
+        return actions.user.formatters_format_text(text, ['hammer'])
+    
 @ctx.capture(rule='{self.formatters}+')
 def formatters(m):
     return m.formatters

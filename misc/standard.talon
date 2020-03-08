@@ -47,7 +47,7 @@ args:
 	insert("[]") 
 	key(left)
 block: 
-	insert("{}") 
+	insert("{{}}") 
 	key(left enter enter up tab)
 empty array: "[]"
 comment see: "// "
