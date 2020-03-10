@@ -1,9 +1,11 @@
 from typing import Set
 from talon import Module, Context, actions, imgui, Module, registry, ui
+from talon.engine import engine
 import math
 
 mod = Module()
-mod.list('help_actions', desc='list of available actions')
+mod.list('help_contexts', desc='list of available contexts')
+mod.list('help_selections', 'list of available selections')
 
 ctx = Context()
 context_mapping = {}
@@ -22,12 +24,13 @@ is_context_help_showing = False
 cached_window_title = None
 show_enabled_contexts_only = False
 
-def on_title(win): 
+def update_title(): 
     global live_update
     global show_enabled_contexts_only
     global is_context_help_showing
+    global cached_window_title
 
-    if is_context_help_showing and live_update and win.title != cached_window_title and selected_context == None:
+    if is_context_help_showing and live_update and ui.active_window().title != cached_window_title and selected_context == None:
         refresh_context_mapping(show_enabled_contexts_only)
 
 #todo: dynamic rect?
@@ -70,7 +73,7 @@ def gui_context_help(gui: imgui.GUI):
             target_page = int(math.ceil(current_item_index / max_items_per_page))
 
             if current_context_page == target_page:
-                button_name = "{}"
+                button_name = str(current_item_index) + ": {}"
 
                 if not show_enabled_contexts_only and key in cached_active_contexts_list:
                     button_name = ("*{}")
@@ -99,7 +102,7 @@ def gui_context_help(gui: imgui.GUI):
         total_page_count = int(math.ceil(len(context_mapping[selected_context]) / max_items_per_page))
         gui.text("{} ({}/{})".format(selected_context, selected_context_page, total_page_count))
         gui.line()
-
+        
         current_item_index = 1
         
         for key, val in context_mapping[selected_context].items():
@@ -108,12 +111,15 @@ def gui_context_help(gui: imgui.GUI):
             if selected_context_page == target_page:
                 val = val.split("\n")
                 if len(val) > 1:
-                    gui.text("{}:".format(key))
+                    if gui.button("{}".format(key,)):
+                        engine.mimic(key.split())
+                    #gui.text("{}:".format(key))
                     for line in val:
                         gui.text("    {}".format(line))
                     gui.spacer()
                 else:
-                    gui.text("{}: {}".format(key, val[0]))
+                    if gui.button("{}: {}".format(key, val[0])):
+                        engine.mimic(key.split())
             
             current_item_index += 1
 
@@ -133,6 +139,7 @@ def gui_context_help(gui: imgui.GUI):
 
         if gui.button('Main Help'):
             refresh_context_mapping(show_enabled_contexts_only)
+            selected_context_page = 1
             selected_context = None
 
     if gui.button('refresh'):
@@ -163,6 +170,7 @@ def refresh_context_mapping(enabled_only = False):
     global cached_window_title
     global cached_active_contexts_list
 
+    cached_short_context_names = {}
     show_enabled_contexts_only = enabled_only
     cached_window_title = ui.active_window().title
     active_contexts = registry.active_contexts()
@@ -173,6 +181,8 @@ def refresh_context_mapping(enabled_only = False):
         
     context_mapping = {}
     for context in registry.contexts.values():
+        short_name = str(context).replace('(Context', '').replace(')', '').split('.')[-1].replace('_', " ")
+        #print(short_name)
         context_name = str(context)
         if enabled_only and context in active_contexts or not enabled_only:
             context_mapping[context_name] = {}
@@ -183,7 +193,10 @@ def refresh_context_mapping(enabled_only = False):
 
             if len(context_mapping[context_name]) == 0:
                 context_mapping.pop(context_name)
+            else: 
+                cached_short_context_names[short_name] = context_name
 
+    ctx.lists['self.help_contexts'] = cached_short_context_names
     sorted_context_map_keys = sorted(context_mapping)
     
 @mod.action_class
@@ -216,14 +229,42 @@ class Actions:
         gui_alphabet.hide()
         gui_context_help.show()
 
+    def help_selected_context(m: str):
+        """Display contextual command info"""
+        global is_context_help_showing
+        global selected_context
+        is_context_help_showing = True
+
+        reset()
+        refresh_context_mapping()
+        selected_context = m
+        gui_alphabet.hide()
+        gui_context_help.show()
+
     def help_hide():
         """Hides the help"""
         global is_context_help_showing
         is_context_help_showing = False
         reset()
+        ctx.lists['self.help_contexts'] = []
         gui_alphabet.hide()
         gui_context_help.hide()
+        
+@mod.capture
+def help_contexts(m) -> str:
+    "Returns a context name"
+
+@ctx.capture(rule='{self.help_contexts}')
+def help_contexts(m):
+    return m.help_contexts[-1]
+
+def ui_event(event, arg):
+    if event in ('app_activate', 'app_launch', 'app_close', 'win_open', 'win_close', 'win_title', 'win_focus'):
+        #print("updating...")
+        update_title()
 
 if live_update:
-    ui.register('win_title', on_title)
-    ui.register("win_focus", on_title)
+    ui.register('', ui_event)
+
+refresh_context_mapping()
+

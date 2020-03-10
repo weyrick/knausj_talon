@@ -18,11 +18,14 @@ sleep all:
 help alphabet:
 	user.help_alphabet(user.get_alphabet())
 
-help context:
+help me:
 	user.help_context()
 
-help active context:
+help me active:
 	user.help_context_enabled()
 
 hide help:
 	user.help_hide()
+
+help me <user.help_contexts>: user.help_selected_context(help_contexts)
+
