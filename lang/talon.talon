@@ -2,18 +2,18 @@ code.language: talon
 -
 action(user.language_operator_and): " and "
 action(user.language_operator_or): " or "
-action(user.language_operator_minus): " - "
-action(user.language_operator_plus): " + "
-action(user.language_operator_multiply): " * "
-action(user.language_operator_divide): " / "
-action(user.language_operator_assign): " = "
+action(user.language_operator_subtraction): " - "
+action(user.language_operator_addition): " + "
+action(user.language_operator_multiplication): " * "
+action(user.language_operator_division): " / "
+action(user.language_operator_assignment): " = "
 action(user.language_comment): "#"
 
 insert: 
 	insert('insert("")')
 	edit.left()
 	edit.left()
-	
+
 key:
 	insert('key()')
 	edit.left()
@@ -38,5 +38,5 @@ tags:
 	insert("tags: ")
 
 user:
-	s is ainsert("user.")
+	insert("user.")
 

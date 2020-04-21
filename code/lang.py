@@ -19,6 +19,74 @@ ctx.settings["user.language_public_variable_formatter"] = "SNAKE_CASE"
 
 @mod.action_class
 class LanguageActions:
+    def language_operator_indirection():
+        """language_operator_indirection"""
+
+    def language_operator_address_of():
+        """language_operator_address_of (e.g., C++ & op)"""
+
+    def language_operator_structure_deference():
+        """language_operator_structure_deference (e.g., C++ -> op)"""
+
+    def language_operator_lambda():
+        """language_operator_lambda"""
+
+    def language_operator_subscript():
+        """language_operator_subscript (e.g., C++ [])"""
+
+    def language_operator_assignment():
+        """language_operator_assignment"""
+
+    def language_operator_subtraction():
+        """language_operator_subtraction"""
+
+    def language_operator_subtraction_assignment():
+        """language_operator_subtraction_equals"""
+    
+    def language_operator_addition():
+        """language_operator_addition"""
+
+    def language_operator_addition_assignment():
+        """language_operator_addition_assignment"""
+
+    def language_operator_multiplication():
+        """language_operator_multiplication"""
+
+    def language_operator_multiplication_assignment():
+        """language_operator_multiplication_assignment"""
+
+    def language_operator_exponent():
+        """language_operator_exponent"""
+
+    def language_operator_division():
+        """language_operator_division"""
+
+    def language_operator_division_assignment():
+        """language_operator_division_assignment"""
+
+    def language_operator_modulo():
+        """language_operator_modulo"""
+
+    def language_operator_modulo_assignment():
+        """language_operator_modulo_assignment"""
+
+    def language_operator_equal():
+        """language_operator_equal"""
+    
+    def language_operator_not_equal():
+        """language_operator_not_equal"""
+
+    def language_operator_greater_than():
+        """language_operator_greater_than"""
+
+    def language_operator_greater_than_or_equal_to(): 
+        """language_operator_greater_than_or_equal_to"""
+
+    def language_operator_less_than():
+        """language_operator_less_than"""
+
+    def language_operator_less_than_or_equal_to(): 
+        """language_operator_less_than_or_equal_to"""
 
     def language_operator_and():
         """languagee_operator_and"""
@@ -26,89 +94,35 @@ class LanguageActions:
     def language_operator_or():
         """language_operator_or"""
 
-    def language_operator_assign():
-        """language_operator_assign"""
+    def language_operator_bitwise_and():
+        """language_operator_bitwise_and"""
 
-    def language_operator_equal():
-        """language_operator_equals"""
-
-    def language_operator_not_equal():
-        """language_operator_equals"""
-
-    def language_operator_minus():
-        """language_operator_minus"""
-
-    def language_operator_minus_equals():
-        """language_operator_minus_equals"""
-    
-    def language_operator_plus():
-        """language_operator_add"""
-
-    def language_operator_plus_equals():
-        """language_operator_plus_equals"""
-
-    def language_operator_multiply():
-        """language_operator_multiply"""
-
-    def language_operator_multiply_equals():
-        """language_operator_multiply_equals"""
-
-    def language_operator_exponent():
-        """language_operator_exponent"""
-
-    def language_operator_divide():
-        """language_operator_divide"""
-
-    def language_operator_divide_equals():
-        """language_operator_divide_equals"""
-
-    def language_operator_modulo():
-        """language_operator_mod"""
-
-    def language_operator_modulo_equals():
-        """language_operator_mod_equals"""
-
-    def language_operator_greater_than():
-        """language_operator_greater_than"""
-
-    def language_operator_greater_than_equals(): 
-        """language_operator_greater_than_equals"""
-
-    def language_operator_less_than():
-        """language_operator_less_than"""
-
-    def language_operator_less_than_equals(): 
-        """language_operator_less_than_equals"""
-
-    def language_bitwise_operator_and():
-        """language_bitwise_operator_and"""
-
-    def language_bitwise_operator_and_equals():
+    def language_operator_bitwise_and_assignment():
         """language_operator_and"""
 
-    def language_bitwise_operator_or(): 
-        """language_bitwise_operator_or"""
+    def language_operator_bitwise_or(): 
+        """language_operator_bitwise_or"""
 
-    def language_bitwise_operator_or_equals(): 
-        """language_operator_or_equals"""
+    def language_operator_bitwise_or_assignment(): 
+        """language_operator_or_assignment"""
     
-    def language_bitwise_operator_exlcusive_or(): 
-        """language_bitwise_operator_exlcusive_or"""
+    def language_operator_bitwise_exlcusive_or(): 
+        """language_operator_bitwise_exlcusive_or"""
 
-    def language_bitwise_operator_exlcusive_or_equals(): 
-        """language_bitwise_operator_exlcusive_or_equals"""
+    def language_operator_bitwise_exlcusive_or_assignment(): 
+        """language_operator_bitwise_exlcusive_or_assignment"""
 
-    def language_bitwise_operator_left_shift(): 
-        """language_bitwise_operator_left_shift"""
+    def language_operator_bitwise_left_shift(): 
+        """language_operator_bitwise_left_shift"""
 
-    def language_bitwise_operator_left_shift_equals(): 
-        """language_bitwise_operator_left_shift_equals"""
+    def language_operator_bitwise_left_shift_assignment(): 
+        """language_operator_bitwise_left_shift_assigment"""
 
-    def language_bitwise_operator_right_shift(): 
-        """language_bitwise_operator_right_shift"""
+    def language_operator_bitwise_right_shift(): 
+        """language_operator_bitwise_right_shift"""
 
-    def language_bitwise_operator_right_shift_equals(): 
-        """language_bitwise_operator_right_shift_equals"""
+    def language_operator_bitwise_right_shift_assignment(): 
+        """language_operator_bitwise_right_shift_assignment"""
 
     def language_self():
         """Inserts the equivalent of "this" in C++ or self in python"""
