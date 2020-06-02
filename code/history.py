@@ -1,6 +1,6 @@
 from talon import imgui, Module, speech_system, actions
 
-hist_len = 10
+hist_len = 5
 history = []
 def parse_phrase(word_list):
     return ' '.join(word.split('\\')[0] for word in word_list)
@@ -22,7 +22,7 @@ def on_phrase(j):
             gui.freeze()
    
 #todo: dynamic rect?
-@imgui.open(y=0)
+@imgui.open(y=50,x=1400)
 def gui(gui: imgui.GUI):
     global history
     gui.text("Command History")

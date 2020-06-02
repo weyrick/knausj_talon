@@ -19,7 +19,7 @@ git clone clipboard:
   edit.paste()
   key(enter)
 git commit message <phrase>: "git commit -m '{phrase}'"
-git commit: "git commit\n"
+git commit: "git commit "
 git diff (colour|color) words: "git diff --color-words "
 git diff: "git diff "
 git fetch: "git fetch\n"
