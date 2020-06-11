@@ -1,7 +1,7 @@
 from talon import Context, Module
 
 simple_vocabulary = [
-    "nmap",
+#    "nmap",
     "admin",
     "Cisco",
     "Citrix",
