@@ -11,5 +11,6 @@ quip <user.text>$: insert(" " + user.text)
 coopersmith: "ubersmith"
 tracks: "trex"
 artie: "already"
+pack advisor: "pktvisor"
 trough:
 	key(alt-backspace)
