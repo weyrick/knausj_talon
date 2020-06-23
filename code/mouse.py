@@ -196,7 +196,7 @@ def on_pop(active):
         if settings.get("user.mouse_enable_pop_click") >= 1:
             ctrl.mouse_click(button=0, hold=16000)
 
-noise.register('pop', on_pop)
+# noise.register('pop', on_pop)
     
 def mouse_scroll(amount):
     def scroll():
