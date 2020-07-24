@@ -1,91 +1,78 @@
 # Microsoft - Visual Studio Code
 # see app/vscode.talon for custom voice commands
 # see ide.talon for common voice commands
-os: linux
 app: Code
-app: Code - OSS
+os: mac
 -
+tag(): tabs
 tag(): ide
+tag(): line_commands
+tag(): splits
 # General
 action(user.ide_command_palette):
-  key(ctrl-shift-p)
+  key(cmd-shift-p)
 action(edit.indent_less):
-  key(ctrl-[)
+  key(cmd-[)
 action(edit.indent_more):
-  key(ctrl-])
+  key(cmd-])
 action(app.tab_next):
-  key(ctrl-k)
-  key(ctrl-pagedown)
-  
+  key(cmd-k)
+  key(alt-cmd-right)
 action(app.tab_previous):
-  key(ctrl-k)
-  key(ctrl-pageup)
-  
+  key(cmd-k)
+  key(alt-cmd-left)
+action(app.tab_close):
+  key(cmd-w)
+# Toggleable views
+action(user.ide_toggle_fullscreen): 
+  user.ide_command_palette()
+  insert("View: Toggle Full Screen")
+  key(enter)
+#action(user.ide_toggle_distraction_free): user.idea("action ToggleDistractionFreeMode")
+#action(user.ide_toggle_presentation_mode): user.idea("action TogglePresentationMode")
+
 # Folding
 action(user.ide_expand_deep):
-  key(ctrl-k ctrl-])
+  key(cmd-k cmd-])
 action(user.ide_expand_all):
-  key(ctrl-k ctrl-j)
+  key(cmd-k cmd-j)
 action(user.ide_expand_region):
-  key(ctrl-shift-])
+  key(alt-cmd-])
 action(user.ide_collapse_deep):
-  key(ctrl-k ctrl-[)
+  key(cmd-k cmd-[)
 action(user.ide_collapse_all):
-  key(ctrl-k ctrl-0)
+  key(cmd-k cmd-0)
 action(user.ide_collapse_region):
-  key(ctrl-shift-[)
-
-# Splits
-action(user.ide_split_right):
-  user.ide_command_palette()
-  insert("workbench.action.splitEditorRight")
-  key(enter)
-
-action(user.ide_split_left):
-  user.ide_command_palette()
-  insert("workbench.action.splitEditorLeft")
-  key(enter)
-
-action(user.ide_split_up):
-  user.ide_command_palette()
-  insert("workbench.action.splitEditorUp")
-  key(enter)
-
-action(user.ide_split_down):
-  user.ide_command_palette()
-  insert("workbench.action.splitEditorDown")
-  key(enter)
-
+  key(alt-cmd-[)
 #Refactor
-
 action(user.ide_refactor):
-  key(ctrl-shift-r)
-
+  key(cmd-shift-r)
 action(user.ide_refactor_in_line):
-  key(ctrl-shift-r)
-
+  key(cmd-shift-r)
 action(user.ide_refactor_rename):
   # Rename Symbol
-  key(f2) 
+  key(f2)
+action(user.ide_rename_file): 
+  user.ide_command_palette()
+  insert("File: Reveal Active File In Side Bar")
+  key(enter)
 action(user.ide_fix_format): 
     # Format Document
     key(alt-shift-f)
 # Navigate
 action(user.ide_follow):
   # Go to Definition
-  key(f12) 
+  key(f12)
 
-action(user.ide_go_back):
-  key(alt-left)
-
-action(user.ide_go_forward):
-  key(alt-right)
+action(user.ide_go_back): key(ctrl-minus)
+action(user.ide_go_forward): key(ctrl-shift-minus)
+action(user.ide_recent): key(ctrl-r)
 
 action(user.ide_multi_cursor_stop): key(escape)
-action(user.ide_up_cursor):key(ctrl-alt-up)
-action(user.ide_down_cursor): key(ctrl-alt-down)
-action(user.ide_multi_select_more): key(ctrl-d)
-action(user.ide_multi_select_all): key(ctrl-shift-l)
+action(user.ide_up_cursor):key(cmd-alt-up)
+action(user.ide_down_cursor): key(cmd-alt-down)
+action(user.ide_multi_select_more): key(cmd-d)
+action(user.ide_multi_select_all): key(cmd-shift-l)
 
 action(user.ide_select_less): key(shift-alt-left)
 action(user.ide_select_more): key(shift-alt-right)
@@ -93,23 +80,25 @@ action(user.ide_select_more): key(shift-alt-right)
 # Terminal
 action(user.ide_toggle_terminal):
   # View:Toggle Integrated Terminal
-  key(ctrl-`) 
+  key(ctrl-`)
 
 action(user.ide_terminal_new):
-  key(ctrl-shift-`)
   # Terminal: Created New Integrated Terminal
+  key(ctrl-shift-`)
 
 action(user.ide_terminal_focus_previous):
-  key(alt-left)
   # Terminal: Focus Previous Pane
+  key(alt-cmd-left)
 
 action(user.ide_terminal_focus_next):
-  key(alt-right)
   # Terminal: Focus Next Pane
+  key(alt-cmd-right)
 
 action(user.ide_terminal_trash):
-  key(ctrl-shift-delete)
-
+    user.ide_command_palette()
+    insert("Terminal:Kill")
+    key(enter)
+  
 action(user.ide_terminal_scroll_down):
   key(shift-pgdown)
 
@@ -118,16 +107,15 @@ action(user.ide_terminal_scroll_up):
 
 # Code Editor
 action(user.ide_toggle_comment):
-  key(ctrl-/)
+  key(cmd-/)
 
 action(user.ide_smart):
-
-  # Trigger Suggest, editor.action.triggerParameterHints
+  # Trigger Suggest, editor.action.triggerSuggest
   key(ctrl-space)
 
 action(user.ide_intellisense_suggest_parameters):
   # Trigger Parameter Hints, editor.action.triggerParameterHints
-  key(ctrl-shift-space)
+  key(shift-cmd-space)
 
 action(user.ide_done):
   key(tab)
@@ -143,66 +131,78 @@ action(user.ide_editor_copylines_up):
 
 # Workbench Focus Areas
 action(user.ide_toggle_project):
-  #FIX works manually with caplock on ctrl-shift-E typed works but not key(ctrl-shift-E) -  Linux Mint 19 (Vagrant VirtualBox),
-  #key(ctrl-shift-E)
-  user.ide_command_palette()
   # View: Show Explorer, workbench.view.explorer
-  insert("workbench.files.action.focusFilesExplorer")
-  key(enter)
+  key(shift-cmd-e)
 
 action(user.ide_toggle_git):
   # View: Show SCM, workbench.view.scm
-  key(ctrl-shift-g)
+  key(shift-cmd-g)
 
 action(user.ide_toggle_extensions):
   # View: Show Extensions, workbench.view.extensions
-  key(ctrl-shift-x)
+  key(shift-cmd-x)
 
 action(user.ide_toggle_status_bar):
   user.ide_command_palette()
   insert("View: Toggle Status Bar Visibility")
   key(enter)
+#action(user.ide_toggle_power_save): user.idea("action TogglePowerSave")
+action(user.ide_toggle_whitespace): 
+  user.ide_command_palette()
+  insert("View: Toggle Render Whitespace")
+  key(enter)
+action(user.ide_toggle_indents): user.ide_toggle_whitespace()
+#requires an extension
+#action(user.ide_toggle_line_numbers):
+action(user.ide_toggle_breadcrumbs): 
+  user.ide_command_palette()
+  insert("View: Toggle Breadcrumbs")
+  key(enter)
+#action(user.ide_toggle_gutter_icons): user.idea("action EditorToggleShowGutterIcons")
+action(user.ide_toggle_wrap): 
+  user.ide_command_palette()
+  insert("View: Toggle Word Wrap")
+  key(enter)
+#action(user.ide_toggle_parameters): user.idea("action ToggleInlineHintsAction")
 
 action(user.ide_toggle_run):
   # View: Show Run and Debug, workbench.view.debug
-  key(ctrl-shift-d)
+  key(shift-cmd-d)
 action(user.ide_toggle_debug):
   # View: Show Run and Debug, workbench.view.debug
-  key(ctrl-shift-d)
+  key(shift-cmd-d)
 
 # Find and Replace
 action(user.ide_toggle_find):
   # Search: Find in Files, workbench.action.findInFiles
-  key(ctrl-shift-f)
+  key(shift-cmd-f)
 action(user.ide_find_everywhere):
   # Search: Find in Files, workbench.action.findInFiles
-  key(ctrl-shift-f)
+  key(shift-cmd-f)
 action(user.ide_replace_everywhere):
   # Search: Replace in Files, workbench.action.replaceInFiles
-  key(ctrl-shift-h)
+  key(shift-cmd-h)
 
 action(user.ide_replace_local):
   # Replace, editor.action.startFindReplaceAction
-  key(ctrl-h)
+  key(alt-cmd-f)
 action(user.ide_replace_confirm_current):
   # ,editor.action.replaceOne
-  key(ctrl-shift-1)
+  key(shift-cmd-1)
 action(user.ide_replace_confirm_all):
   # ,editor.action.replaceAll
-  key(ctrl-alt-enter)
+  key(cmd-enter)
 
 action(user.ide_find_match_by_case):
   # Terminal: Toggle Find Using Case Sensitive, workbench.action.terminal.toggleFindCaseSensitive
-  key(alt-c)
+  key(alt-cmd-c)
 action(user.ide_find_match_by_word):
   # Terminal: Toggle Find Using Whole Word, toggleFindWholeWord
-  key(alt-w)
+  key(alt-cmd-w)
 action(user.ide_find_match_by_regex):
   # Terminal: Toggle Find Using Regex, workbench.action.terminal.toggleFindRegex
-  key(alt-r)
-
-
-
+  key(alt-cmd-r)
+  
 action(user.ide_toggle_breakpoint):
   # Debug: Toggle Breakpoint, editor.debug.action.toggleBreakpoint
   key(f9)
@@ -219,27 +219,56 @@ action(user.ide_step_out):
 # Window and File Management
 action(app.window_open):
   # New Window, workbench.action.newWindow
-  key(ctrl-shift-n)
+  key(shift-cmd-n)
+
+action(user.ide_create_sibling):
+  user.ide_command_palette()
+  insert("File: New File")
+  key(enter)
 
 action(user.ide_create_file):
   # File: New and Titled File, workbench.action.files.newUntitledFile
-  key(ctrl-n)
+  key(cmd-n)
 
 action(user.ide_reveal_in_file_manager):
   # , workbench.action.files.revealActiveFileInWindows
-  key(ctrl-k r)
+  key(cmd-k r)
 
 action(user.ide_find_file):
   # Go to File... , workbench.action.quickOpen
-  key(ctrl-p)
+  key(cmd-p)
 
-#tabs 
-action(user.ide_go_first_tab): key(alt-1)
-action(user.ide_go_second_tab): key(alt-2)
-action(user.ide_go_third_tab): key(alt-3)
-action(user.ide_go_fourth_tab): key(alt-4)
-action(user.ide_go_fifth_tab): key(alt-5)
-action(user.ide_go_sixth_tab): key(alt-6)
-action(user.ide_go_seventh_tab): key(alt-7)
-action(user.ide_go_eighth_tab): key(alt-8)
-action(user.ide_go_ninth_tab): key(alt-9)
+# splits.py support
+action(user.split_window_right):
+  user.ide_command_palette()
+  insert("workbench.action.moveEditorToRightGroup")
+  key(enter)
+action(user.split_window_left):
+  user.ide_command_palette()
+  insert("workbench.action.moveEditorToLeftGroup")
+  key(enter)
+action(user.split_window_up):
+  user.ide_command_palette()
+  insert("workbench.action.moveEditorToAboveGroup")
+  key(enter)
+action(user.split_window_down):
+  user.ide_command_palette()
+  insert("workbench.action.moveEditorToBelowGroup")
+  key(enter)
+action(user.split_window_vertically): 
+  user.ide_command_palette()
+  insert("View: Split Editor")
+  key(enter)
+action(user.split_window_horizontally): 
+  user.ide_command_palette()
+  insert("View: Split Editor Orthogonal")
+  key(enter)
+action(user.split_flip): key(alt-cmd-0)
+action(user.split_window): key(cmd-\)
+action(user.split_clear): user.split_clear_all()
+action(user.split_clear_all): 
+  user.ide_command_palette()
+  insert("View: Single Column Editor Layout")
+  key(enter)
+action(user.split_next): key(cmd-k cmd-right)
+action(user.split_last): key(cmd-k cmd-left)
