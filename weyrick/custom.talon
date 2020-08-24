@@ -8,7 +8,7 @@ sky <user.letters>: user.keys_uppercase_letters(letters)
 swick: key(cmd-tab)
 
 swipe: ", "
-datsun: ". "
+(datsun | dotson) : ". "
 deminus: " - "
 
 quip <user.text>$: insert(" " + user.text)
@@ -16,7 +16,7 @@ quip <user.text>$: insert(" " + user.text)
 coopersmith: "ubersmith"
 tracks: "trex"
 artie: "already"
-october: "oocto"
+(october | octa): "oocto"
 mungo: "mongo"
 pack advisor: "pktvisor"
 trough:
