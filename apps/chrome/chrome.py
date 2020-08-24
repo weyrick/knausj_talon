@@ -1,11 +1,17 @@
 from talon import ctrl, ui, Module, Context, actions, clip, app
 
 ctx = Context()
-ctx.matches = r'''
-app: Google Chrome
-app: chrome.exe
-'''
-@ctx.action_class('user')
+mod = Module()
+
+mod.apps.chrome = "app.name: Google Chrome"
+mod.apps.chrome = "app.name: chrome.exe"
+
+ctx.matches = r"""
+app: chrome
+"""
+
+
+@ctx.action_class("user")
 class user_actions:
     def tab_jump(number: int):
         if number < 9:
@@ -20,4 +26,3 @@ class user_actions:
         else:
             actions.key("ctrl-9")
 
-        

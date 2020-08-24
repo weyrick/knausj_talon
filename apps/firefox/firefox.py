@@ -1,12 +1,18 @@
 from talon import ctrl, ui, Module, Context, actions, clip, app
 
 ctx = Context()
-ctx.matches = r'''
-app: Firefox
-app: firefox.exe
+mod = Module()
+apps = mod.apps
+apps.firefox = "app.name: Firefox"
+apps.firefox = "app.name: firefox"
+apps.firefox = "app.name: firefox.exe"
+
+ctx.matches = r"""
 app: firefox
-'''
-@ctx.action_class('user')
+"""
+
+
+@ctx.action_class("user")
 class user_actions:
     def tab_jump(number: int):
         if number < 9:
