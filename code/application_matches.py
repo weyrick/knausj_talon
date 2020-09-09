@@ -24,6 +24,8 @@ and app.name: RStudio
 apps.apple_terminal = """
 os: mac
 and app.bundle: com.apple.Terminal
+os: mac
+and app.bundle: com.googlecode.iterm2
 """
 
 # linux specific apps

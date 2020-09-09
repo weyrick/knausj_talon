@@ -11,6 +11,7 @@ swipe: ", "
 (datsun | dotson) : ". "
 deminus: " - "
 
+bump: key(space)
 quip <user.text>$: insert(" " + user.text)
 
 coopersmith: "ubersmith"

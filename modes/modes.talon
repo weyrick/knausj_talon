@@ -1,10 +1,10 @@
 #defines the various mode commands
 mode: all
 -
-welcome back:
-    user.mouse_wake()
-    user.history_enable()
-    speech.enable()
+#welcome back:
+#    user.mouse_wake()
+#    user.history_enable()
+#    speech.enable()
 sleep all:
     user.switcher_hide_running()
     user.history_disable()
