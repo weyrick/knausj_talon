@@ -6,7 +6,8 @@ settings():
 
 mission control: user.mission()
 debug that: user.misc_debug()
-sky <user.letters>: user.keys_uppercase_letters(letters)
+sky <user.letters>:
+    user.insert_formatted(letters, "ALL_CAPS")
 swick: key(cmd-tab)
 
 swipe: ", "
@@ -14,6 +15,10 @@ swipe: ", "
 deminus: " - "
 
 bump: key(space)
+stoosh: edit.copy()
+snatch: edit.cut()
+spark: edit.paste()
+sparker: key(cmd-shift-v)
 back up: edit.undo()
 quip <user.text>$: insert(" " + user.text)
 
