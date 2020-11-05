@@ -23,10 +23,5 @@ back up: edit.undo()
 quip <user.text>$: insert(" " + user.text)
 
 coopersmith: "ubersmith"
-tracks: "trex"
-artie: "already"
-(october | octa): "oocto"
-mungo: "mongo"
-pack advisor: "pktvisor"
 trough:
 	key(alt-backspace)
