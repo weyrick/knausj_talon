@@ -20,6 +20,7 @@ snatch: edit.cut()
 spark: edit.paste()
 sparker: key(cmd-shift-v)
 back up: edit.undo()
+ticker: "`"
 quip <user.text>$: insert(" " + user.text)
 
 coopersmith: "ubersmith"

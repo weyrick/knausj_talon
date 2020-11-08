@@ -154,7 +154,7 @@ class Actions:
         gui.hide()
 
 
-@imgui.open(software=False)
+@imgui.open(y=0,software=False)
 def gui(gui: imgui.GUI):
     gui.text("Names of running applications")
     gui.line()
