@@ -11,18 +11,19 @@ sky <user.letters>:
 swick: key(cmd-tab)
 
 swipe: ", "
+swipe <user.text>:
+    ", "
+    insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
 (datsun | dotson) : ". "
-deminus: " - "
-
+bump minus: " - "
 bump: key(space)
+bump <user.text>:
+    key(space)
+    insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
 stoosh: edit.copy()
 snatch: edit.cut()
 spark: edit.paste()
 sparker: key(cmd-shift-v)
 back up: edit.undo()
 ticker: "`"
-quip <user.text>$: insert(" " + user.text)
-
-coopersmith: "ubersmith"
-trough:
-	key(alt-backspace)
+trough: key(alt-backspace)
