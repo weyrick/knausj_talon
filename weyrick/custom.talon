@@ -11,6 +11,7 @@ sky <user.letters>:
 swick: key(cmd-tab)
 
 swipe: ", "
+close perrin: ")"
 swipe <user.text>:
     ", "
     insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
@@ -20,7 +21,7 @@ bump: key(space)
 bump <user.text>:
     key(space)
     insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
-stoosh: edit.copy()
+biker: edit.copy()
 snatch: edit.cut()
 spark: edit.paste()
 sparker: key(cmd-shift-v)
