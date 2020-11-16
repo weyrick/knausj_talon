@@ -4,6 +4,8 @@ settings():
     user.mouse_enable_pop_stops_scroll = 1
     user.mouse_wheel_down_amount = 240
 
+tag(): user.mouse_grid_enabled
+
 mission control: user.mission()
 debug that: user.misc_debug()
 sky <user.letters>:
