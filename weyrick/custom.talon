@@ -31,3 +31,4 @@ sparker: key(cmd-shift-v)
 back up: edit.undo()
 ticker: "`"
 trough: key(alt-backspace)
+grep: "grep "
