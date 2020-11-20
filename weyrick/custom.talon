@@ -3,6 +3,7 @@ settings():
     user.mouse_enable_pop_click = 1
     user.mouse_enable_pop_stops_scroll = 1
     user.mouse_wheel_down_amount = 240
+    user.grid_shimmer_effect_enabled = 1
 
 tag(): user.mouse_grid_enabled
 
