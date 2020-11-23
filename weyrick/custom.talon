@@ -29,5 +29,9 @@ spark: edit.paste()
 sparker: key(cmd-shift-v)
 back up: edit.undo()
 ticker: "`"
+doubler: "\""
 trough: key(alt-backspace)
 grep: "grep "
+nulla: "0"
+tenth: ""
+
