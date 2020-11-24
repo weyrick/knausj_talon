@@ -35,4 +35,5 @@ trough: key(alt-backspace)
 grep: "grep "
 nulla: "0"
 tenth: ""
-
+backer: edit.line_end()
+fronter: edit.line_start()
