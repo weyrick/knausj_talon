@@ -37,3 +37,4 @@ nulla: "0"
 tenth: ""
 backer: edit.line_end()
 fronter: edit.line_start()
+katter: key(cmd-shift-space)
