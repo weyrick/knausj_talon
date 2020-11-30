@@ -15,6 +15,8 @@ swick: key(cmd-tab)
 
 swipe: ", "
 close perrin: ")"
+clothes bracket: "}"
+close bracket: "}"
 swipe <user.text>:
     ", "
     insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
