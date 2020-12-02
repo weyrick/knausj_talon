@@ -36,7 +36,10 @@ doubler: "\""
 trough: key(alt-backspace)
 grep: "grep "
 nulla: "0"
+doula: "0"
 tenth: ""
 backer: edit.line_end()
 fronter: edit.line_start()
 katter: key(cmd-shift-space)
+way down: key(cmd-down)
+way up: key(cmd-up)

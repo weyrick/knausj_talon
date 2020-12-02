@@ -12,11 +12,11 @@ class Actions:
         """mission control"""
         dock.dock_notify('com.apple.expose.awake')
 
-def on_pop(active):
-    print('pop click grid')
-    mg_ctx.tags = []
-    mg.reset()(None)
-    mg.stop()
-
-
-noise.register('pop', on_pop)
+# def on_pop(active):
+#     print('pop click grid')
+#     mg_ctx.tags = []
+#     mg.reset()(None)
+#     mg.stop()
+#
+#
+# noise.register('pop', on_pop)
