@@ -37,3 +37,20 @@ resume:
   insert("fg")
   key(enter)
 
+# weyrick
+change <user.text>:
+  "cd "
+  insert(user.text)
+  "; ls -al"
+  key(enter)
+change up:
+  "cd ..; ls -al"
+  key(enter)
+zip <user.text>:
+  "z "
+  insert(user.text)
+  "; ls -al"
+  key(enter)
+cat <user.text>:
+  "cat "
+  insert(user.text)
