@@ -23,13 +23,15 @@ class win_actions:
         # this doesn't seem to be necessary on VSCode for Mac
         # if title == "":
         #    title = ui.active_window().doc
-
-        result = title.split(" - ")[1]
+        
+        if " - " in title:
+            result = title.split(" - ")[1]
+        else:
+            result = title
 
         if "." in result:
             return result
 
-        print(result)
         return ""
 
     def file_ext():
@@ -166,7 +168,7 @@ class user_actions:
     def select_next_occurrence(text: str):
         actions.edit.find(text)
         actions.sleep("100ms")
-        actions.key("alt-f alt-o enter esc")
+        actions.key("alt-f alt-o esc")
 
     # find_and_replace.py support end
 
