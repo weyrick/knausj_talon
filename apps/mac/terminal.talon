@@ -41,6 +41,13 @@ resume:
 change <user.text>:
   "cd "
   insert(user.text)
+  key(tab)
+  "; ls -al"
+  key(enter)
+change <user.letters>:
+  "cd "
+  insert(user.letters)
+  key(tab)
   "; ls -al"
   key(enter)
 change up:
@@ -54,3 +61,6 @@ zip <user.text>:
 cat <user.text>:
   "cat "
   insert(user.text)
+ls:
+  "ls -al"
+  key(enter)
