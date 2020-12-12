@@ -40,6 +40,10 @@ doula: "0"
 tenth: ""
 backer: edit.line_end()
 fronter: edit.line_start()
-katter: key(cmd-shift-space)
+katter:
+   key(cmd-shift-space)
+katter <user.text>:
+   key(cmd-shift-space)
+   insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
 way down: key(cmd-down)
 way up: key(cmd-up)
