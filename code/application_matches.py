@@ -28,6 +28,11 @@ os: mac
 and app.bundle: com.googlecode.iterm2
 """
 
+apps.iterm2 = """
+os: mac
+and app.bundle: com.googlecode.iterm2
+"""
+
 # linux specific apps
 apps.keepass = """
 os: linux
