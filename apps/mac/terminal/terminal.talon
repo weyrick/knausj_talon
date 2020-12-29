@@ -58,9 +58,6 @@ zip <user.text>:
   insert(user.text)
   "; ls -al"
   key(enter)
-cat <user.text>:
-  "cat "
-  insert(user.text)
 ls:
   "ls -al"
   key(enter)

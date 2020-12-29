@@ -6,7 +6,7 @@ settings():
     user.grid_shimmer_effect_enabled = 1
 
 tag(): user.mouse_grid_enabled
-
+bark: key(enter)
 mission control: user.mission()
 debug that: user.misc_debug()
 sky <user.letters>:
