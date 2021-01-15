@@ -13,6 +13,7 @@ sky <user.letters>:
     user.insert_formatted(letters, "ALL_CAPS")
 swick: key(cmd-tab)
 
+standard: "std::"
 swipe: ", "
 close perrin: ")"
 clothes bracket: "}"
@@ -38,6 +39,7 @@ grep: "grep "
 nulla: "0"
 doula: "0"
 tenth: ""
+ander: "&"
 backer: edit.line_end()
 fronter: edit.line_start()
 katter:
