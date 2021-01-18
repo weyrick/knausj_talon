@@ -37,9 +37,9 @@ doubler: "\""
 trough: key(alt-backspace)
 grep: "grep "
 nulla: "0"
+bar: "|"
 doula: "0"
 tenth: ""
-ander: "&"
 backer: edit.line_end()
 fronter: edit.line_start()
 katter:

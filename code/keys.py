@@ -183,7 +183,7 @@ symbol_key_words = {
     "percent": "%",
     "caret": "^",
     "amper": "&",
-    "pipe": "|",
+    # "pipe": "|",
     "dubquote": '"',
     "double quote": '"',
 }
