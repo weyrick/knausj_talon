@@ -190,6 +190,7 @@ git menu: user.idea("action Vcs.QuickListPopupAction")
 # Tool windows:
 # Toggling various tool windows
 toggle project: user.idea("action ActivateProjectToolWindow")
+toggle messages: user.idea("action ActivateMessagesToolWindow")
 toggle find: user.idea("action ActivateFindToolWindow")
 toggle run: user.idea("action ActivateRunToolWindow")
 toggle debug: user.idea("action ActivateDebugToolWindow")

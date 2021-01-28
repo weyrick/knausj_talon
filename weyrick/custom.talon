@@ -12,7 +12,15 @@ debug that: user.misc_debug()
 sky <user.letters>:
     user.insert_formatted(letters, "ALL_CAPS")
 swick: key(cmd-tab)
-
+slapper:
+    edit.line_end()
+    ";"
+    key(enter)
+jump:
+    key(ctrl-;)
+jump <user.text>:
+    key(ctrl-;)
+    insert(user.text)
 standard: "std::"
 swipe: ", "
 close perrin: ")"
@@ -40,8 +48,8 @@ nulla: "0"
 bar: "|"
 doula: "0"
 tenth: ""
-backer: edit.line_end()
-fronter: edit.line_start()
+#backer: edit.line_end()
+#fronter: edit.line_start()
 katter:
    key(cmd-shift-space)
 katter <user.text>:
