@@ -32,9 +32,11 @@ cut [line] <number>:
 cut [line] <number> until <number>: 
     user.select_range(number_1, number_2)
     edit.cut()
-paste at [line] <number>:
+# sweyrick
+paste line <number>:
     edit.jump_line(number)
     edit.paste()
+#
 paste <number> until <number>:
   user.select_range(number_1, number_2)
   edit.paste()

@@ -16,6 +16,8 @@ slapper:
     edit.line_end()
     ";"
     key(enter)
+wipe (right | write):
+    key(delete)
 jump:
     key(ctrl-;)
 jump <user.text>:
