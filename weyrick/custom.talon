@@ -3,7 +3,7 @@ settings():
     user.mouse_enable_pop_click = 1
     user.mouse_enable_pop_stops_scroll = 1
     user.mouse_wheel_down_amount = 240
-    user.grid_shimmer_effect_enabled = 0
+#    user.grid_shimmer_effect_enabled = 0
 
 tag(): user.mouse_grid_enabled
 bark: key(enter)
@@ -46,9 +46,9 @@ ticker: "`"
 doubler: "\""
 trough: key(alt-backspace)
 grep: "grep "
-nulla: "0"
-bar: "|"
-doula: "0"
+#nulla: "0"
+#bar: "|"
+#doula: "0"
 tenth: ""
 #backer: edit.line_end()
 #fronter: edit.line_start()
@@ -57,5 +57,6 @@ katter:
 katter <user.text>:
    key(cmd-shift-space)
    insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
-way down: key(cmd-down)
-way up: key(cmd-up)
+#way down: key(cmd-down)
+#way up: key(cmd-up)
+righty: user.mouse_long_right()
