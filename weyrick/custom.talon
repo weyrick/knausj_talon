@@ -6,7 +6,7 @@ settings():
 #    user.grid_shimmer_effect_enabled = 0
 
 tag(): user.mouse_grid_enabled
-bark: key(enter)
+#bark: key(enter)
 mission control: user.mission()
 debug that: user.misc_debug()
 sky <user.letters>:
@@ -25,6 +25,8 @@ jump <user.text>:
     insert(user.text)
 standard: "std::"
 swipe: ", "
+per: "("
+perrin: "("
 close perrin: ")"
 clothes bracket: "}"
 close bracket: "}"
@@ -60,3 +62,8 @@ katter <user.text>:
 #way down: key(cmd-down)
 #way up: key(cmd-up)
 righty: user.mouse_long_right()
+comment: '// '
+end bracket:
+    edit.line_end()
+    ' {'
+    key(enter)
