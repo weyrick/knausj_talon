@@ -34,6 +34,8 @@ resume:
   key(enter)
 
 # weyrick
+change:
+  "cd "
 change <user.text>:
   "cd "
   insert(user.text)

@@ -24,9 +24,10 @@ jump <user.text>:
     key(ctrl-;)
     insert(user.text)
 standard: "std::"
+(close square | clothes square | car square | air square): "]"
+talon week: speech.enable()
 swipe: ", "
-per: "("
-perrin: "("
+(per | perrin): "("
 close perrin: ")"
 clothes bracket: "}"
 close bracket: "}"
