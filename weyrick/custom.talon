@@ -68,3 +68,4 @@ end bracket:
     edit.line_end()
     ' {'
     key(enter)
+sleeper: speech.disable()
