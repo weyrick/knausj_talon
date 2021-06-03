@@ -13,6 +13,7 @@ op subscript: user.code_operator_subscript()
 
 #assignment
 op (equals | assign): user.code_operator_assignment()
+op walrus: user.code_operator_walrus()
 
 #math operators
 op (minus | subtract): user.code_operator_subtraction()

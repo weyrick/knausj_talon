@@ -2,6 +2,9 @@ mode: user.go
 mode: command
 and code.language: go
 -
+tag(): user.code_operators
+tag(): user.code_comment
+tag(): user.code_generic
 variadic: "..."
 logical and: " && "
 logical or: " || "
@@ -198,3 +201,78 @@ swipe [<user.text>] [over]:
     key("right")
     insert(", ")
     insert(user.formatted_text(text, "PRIVATE_CAMEL_CASE"))
+
+action(user.code_operator_indirection): "*"
+action(user.code_operator_address_of): "&"
+action(user.code_operator_subscript):
+    insert("[]")
+    key(left)
+action(user.code_operator_assignment): " = "
+action(user.code_operator_walrus): " := "
+action(user.code_operator_subtraction): " - "
+action(user.code_operator_subtraction_assignment): " -= "
+action(user.code_operator_addition): " + "
+action(user.code_operator_addition_assignment): " += "
+action(user.code_operator_multiplication): " * "
+action(user.code_operator_multiplication_assignment): " *= "
+#action(user.code_operator_exponent): " ** "
+action(user.code_operator_division): " / "
+action(user.code_operator_division_assignment): " /= "
+action(user.code_operator_modulo): " % "
+action(user.code_operator_modulo_assignment): " %= "
+action(user.code_operator_equal): " == "
+action(user.code_operator_not_equal): " != "
+action(user.code_operator_greater_than): " > "
+action(user.code_operator_greater_than_or_equal_to): " >= "
+action(user.code_operator_less_than): " < "
+action(user.code_operator_less_than_or_equal_to): " <= "
+action(user.code_operator_and): " && "
+action(user.code_operator_or): " || "
+action(user.code_operator_bitwise_and): " & "
+action(user.code_operator_bitwise_and_assignment): " &= "
+action(user.code_operator_bitwise_or): " | "
+action(user.code_operator_bitwise_or_assignment): " |= "
+action(user.code_operator_bitwise_exclusive_or): " ^ "
+action(user.code_operator_bitwise_exclusive_or_assignment): " ^= "
+action(user.code_operator_bitwise_left_shift): " << "
+action(user.code_operator_bitwise_left_shift_assignment): " <<= "
+action(user.code_operator_bitwise_right_shift): " >> "
+action(user.code_operator_bitwise_right_shift_assignment): " >>= "
+action(user.code_block):
+    insert("{}")
+	key(left enter enter up tab)
+action(user.code_null): "nil"
+action(user.code_is_null): " == nil "
+action(user.code_is_not_null): " != nil"
+action(user.code_state_if):
+    insert("if()")
+    key(left)
+action(user.code_state_else_if):
+    insert("else if()")
+    key(left)
+action(user.code_state_else):
+    insert("else\n{{\n}}\n")
+    key(up )
+action(user.code_state_switch):
+    insert("switch()")
+    edit.left()
+action(user.code_state_case):
+    insert("case \nbreak;")
+    edit.up()
+action(user.code_state_for): "for "
+action(user.code_state_for_each):
+    insert("foreach() ")
+    key(left)
+    edit.word_left()
+    key(space)
+    edit.left()
+action(user.code_state_while):
+    insert("while()")
+    edit.left()
+action(user.code_state_return): "return "
+action(user.code_break): "break"
+action(user.code_next): "continue"
+action(user.code_true): "true"
+action(user.code_false): "false"
+
+action(user.code_comment): "//"

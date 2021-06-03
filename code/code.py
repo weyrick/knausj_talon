@@ -139,6 +139,9 @@ class Actions:
     def code_operator_assignment():
         """code_operator_assignment"""
 
+    def code_operator_walrus():
+        """code_operator_walrus"""
+
     def code_operator_subtraction():
         """code_operator_subtraction"""
 
