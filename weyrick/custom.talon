@@ -27,14 +27,10 @@ jump <user.text>:
 standard: "std::"
 (close square | clothes square | car square | air square): "]"
 talon week: speech.enable()
-swipe: ", "
 (per | perrin): "("
 close perrin: ")"
 clothes bracket: "}"
 close bracket: "}"
-swipe <user.text>:
-    ", "
-    insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
 (datsun | dotson) : ". "
 bump minus: " - "
 bump: key(space)
