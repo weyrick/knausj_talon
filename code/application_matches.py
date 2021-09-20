@@ -78,3 +78,6 @@ os: windows
 and app.exe: powershell.exe
 """
 
+apps.vim = """
+win.title:/VIM/
+"""
