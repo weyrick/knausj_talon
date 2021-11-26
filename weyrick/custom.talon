@@ -66,3 +66,4 @@ end bracket:
     ' {'
     key(enter)
 sleeper: speech.disable()
+gazer: user.mouse_gaze_scroll()
