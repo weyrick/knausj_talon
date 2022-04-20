@@ -251,7 +251,7 @@ class EditActions:
 
     def extend_file_end():
         actions.user.idea("action EditorTextEndWithSelection")
-    
+
     def extend_word_left():
         actions.user.idea("action EditorPreviousWordWithSelection")
     def extend_word_right():
@@ -344,6 +344,10 @@ class UserActions:
         actions.user.idea("action SplitHorizontally")
     def split_flip():
         actions.user.idea("action ChangeSplitOrientation")
+    def split_maximize():
+        actions.key("ctrl-shift-f12")
+    def split_reset():
+        actions.key("shift-f12")
     # def split_window():
     def split_clear():
         actions.user.idea("action Unsplit")
