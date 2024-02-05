@@ -116,6 +116,7 @@ mod = Module()
 mod.apps.jetbrains = "app.name: /jetbrains/"
 mod.apps.jetbrains = "app.name: CLion"
 mod.apps.jetbrains = "app.name: IntelliJ IDEA"
+mod.apps.jetbrains = "app.name: PhpStorm"
 mod.apps.jetbrains = "app.name: PyCharm"
 mod.apps.jetbrains = "app.name: CLion"
 mod.apps.jetbrains = "app.name: GoLand"
@@ -135,6 +136,8 @@ mod.apps.jetbrains = "app.exe: webstorm64.exe"
 mod.apps.jetbrains = """
 os: mac
 and app.bundle: com.jetbrains.pycharm
+os: mac
+and app.bundle: com.jetbrains.rider
 """
 mod.apps.jetbrains = """
 os: windows
