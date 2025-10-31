@@ -1,6 +1,6 @@
 from talon import Module, actions, settings
 
-from .edit_command_actions import EditAction, run_action_callback
+from .edit_command_actions import EditAction, EditSimpleAction, run_action_callback
 from .edit_command_modifiers import EditModifier, run_modifier_callback
 
 mod = Module()
@@ -152,7 +152,8 @@ compound_actions = {
     ("delete", "right"): actions.user.delete_right,
     ("delete", "line"): actions.edit.delete_line,
     ("delete", "paragraph"): actions.edit.delete_paragraph,
-    ("delete", "document"): actions.edit.delete_all,
+    # ("delete", "document"): actions.edit.delete_all, # Beta only
+    ("delete", "document"): actions.user.delete_all,
     ("delete", "selection"): actions.edit.delete,
     # Cut to clipboard
     ("cutToClipboard", "line"): actions.user.cut_line,
@@ -164,8 +165,16 @@ compound_actions = {
 
 @mod.action_class
 class Actions:
-    def edit_command(action: EditAction, modifier: EditModifier):
-        """Perform edit command"""
+    def edit_command(action: EditAction | str, modifier: EditModifier | str):
+        """Perform edit command with associated modifier.
+        Action and modifier can be dataclasses (formed from utterances via
+        capture) or str, for use in scripts. Strings should match the action or
+        modifier types declared here or in edit_command_modifiers.py or
+        edit_command_actions.py"""
+        if isinstance(modifier, str):
+            modifier = EditModifier(modifier)
+        if isinstance(action, str):
+            action = EditSimpleAction(action)
         key = (action.type, modifier.type)
         count = modifier.count
 

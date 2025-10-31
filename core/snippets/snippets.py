@@ -101,6 +101,17 @@ class Actions:
         snippet: Snippet = actions.user.get_snippet(snippet_name)
         return to_wrapper_snippet(snippet, variable_name)
 
+    def escape_snippet_stops(body: str) -> str:
+        """Escapes snippet stops in the body"""
+        # $ needs to be escaped because it is used to mark snippet stops.
+        # \ needs to be escaped to prevent it from escaping the backslashes used to escape the stops
+        # which would undo the escaping
+        return body.replace("\\", "\\\\").replace("$", "\\$")
+
+    def get_snippet_names() -> list[str]:
+        """Get the snippet names"""
+        return [snippet_name for snippet_name in snippets_map]
+
 
 def get_preferred_snippet(snippets: list[Snippet]) -> Snippet:
     lang: Union[str, set[str]] = actions.code.language()
@@ -123,7 +134,7 @@ def get_preferred_snippet(snippets: list[Snippet]) -> Snippet:
 
 def split_wrapper_snippet_name(name: str) -> tuple[str, str]:
     index = name.rindex(".")
-    return name[:index], name[index + 1]
+    return name[:index], name[index + 1 :]
 
 
 def to_wrapper_snippet(snippet: Snippet, variable_name) -> WrapperSnippet:
@@ -159,8 +170,9 @@ def update_snippets():
                     if var.insertion_formatters:
                         lists.with_phrase[phrase] = snippet.name
 
-                    if var.wrapper_phrases:
-                        lists.wrapper[phrase] = f"{snippet.name}.{var.name}"
+            for var in snippet.variables:
+                for phrase in var.wrapper_phrases or []:
+                    lists.wrapper[phrase] = f"{snippet.name}.{var.name}"
 
     snippets_map = name_to_snippets
     update_contexts(language_to_lists)

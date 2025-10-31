@@ -19,6 +19,7 @@ code_languages = [
     # Language("bash", "bash", ["sh", "bashbook"]),
     Language("batch", "batch", ["bat"]),
     Language("c", "see", ["c", "h"]),
+    Language("snippet", "snippet", ["snippet"]),
     # Language("cmake", "see make", ["cmake"]),
     Language("csharp", "see sharp", ["cs"]),
     Language("css", "c s s", ["css"]),
@@ -58,6 +59,7 @@ code_languages = [
     Language("vimscript", "vim script", ["vim", "vimrc"]),
     # These languages doesn't actually have a language mode, but we do have snippets.
     Language("cpp", "see plus plus", ["cpp", "hpp"]),
+    Language("csv", "csv", ["csv"]),
     Language("html", "html", ["html"]),
     Language("json", "json", ["json"]),
     Language("shellscript", "shell script", ["sh"]),
