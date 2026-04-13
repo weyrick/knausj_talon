@@ -5,7 +5,7 @@ settings():
     user.mouse_wheel_down_amount = 240
 #    user.grid_shimmer_effect_enabled = 0
 
-tag(): user.mouse_grid_enabled
+# tag(): user.mouse_grid_enabled
 #bark: key(enter)
 mission control: user.mission()
 debug that: user.misc_debug()
@@ -32,11 +32,11 @@ close perrin: ")"
 clothes bracket: "}"
 close bracket: "}"
 (datsun | dotson) : ". "
-bump minus: " - "
-bump: key(space)
-bump <user.text>:
-    key(space)
-    insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
+#bump minus: " - "
+#bump: key(space)
+#bump <user.text>:
+#    key(space)
+#    insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
 biker: edit.copy()
 snatch: edit.cut()
 spark: edit.paste()
