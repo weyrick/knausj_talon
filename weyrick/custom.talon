@@ -9,8 +9,8 @@ settings():
 #bark: key(enter)
 mission control: user.mission()
 debug that: user.misc_debug()
-sky <user.letters>:
-    user.insert_formatted(letters, "ALL_CAPS")
+#sky <user.letters>:
+#    user.insert_formatted(letters, "ALL_CAPS")
 swick: key(cmd-tab)
 slapper:
     edit.line_end()
@@ -19,11 +19,11 @@ slapper:
 end two: key(enter)
 wipe (right | write):
     key(delete)
-jump:
-    key(ctrl-;)
-jump <user.text>:
-    key(ctrl-;)
-    insert(user.text)
+#jump:
+#    key(ctrl-;)
+#jump <user.text>:
+#    key(ctrl-;)
+#    insert(user.text)
 standard: "std::"
 (close square | clothes square | car square | air square): "]"
 talon week: speech.enable()
@@ -54,9 +54,9 @@ tenth: ""
 #fronter: edit.line_start()
 katter:
    key(cmd-shift-space)
-katter <user.text>:
-   key(cmd-shift-space)
-   insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
+#katter <user.text>:
+#   key(cmd-shift-space)
+#   insert(user.formatted_text(user.text, "ALL_LOWERCASE"))
 #way down: key(cmd-down)
 #way up: key(cmd-up)
 righty: user.mouse_long_right()
