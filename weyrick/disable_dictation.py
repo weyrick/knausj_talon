@@ -37,6 +37,9 @@ ctx.lists["user.code_formatter"] = {
 # Disable the alphabet so saying "air", "bat", "cap", etc. doesn't type letters
 ctx.lists["user.letter"] = {}
 
+# Disable word formatters ("word", "trot", "proud", "leap") that type a single word
+ctx.lists["user.word_formatter"] = {}
+
 # --- Captures ---
 
 # Override user.text so commands like "phrase <user.text>", "jump <user.text>",
@@ -50,4 +53,9 @@ def text(m) -> str:
 # Same for raw_prose (used in dictation_mode, less critical but for safety)
 @ctx.capture("user.prose", rule="talondisabledprose")
 def prose(m) -> str:
+    return ""
+
+# Block <user.word> single-word capture too (used by lua "index <word>" etc.)
+@ctx.capture("user.word", rule="talondisabledword")
+def word(m) -> str:
     return ""
